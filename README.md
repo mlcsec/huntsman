@@ -20,14 +20,16 @@ Email enumerator, username generator, and context validator providing detailed c
 
 ## Demo
 
-[huntsman.webm](https://github.com/user-attachments/assets/59f51fc5-c7c0-406d-b4f3-ee854d77e96e)
+[huntsman.webm](https://github.com/user-attachments/assets/c8293d01-4e4f-4c57-8c59-72c972bc3a70)
+
 
 ## Installation
 
+Install from PyPI with pip:
 ```
 pip install huntsman
 ```
-Or
+OR git clone and install:
 ```
 git clone https://github.com/mlcsec/huntsman.git
 cd huntsman
@@ -73,15 +75,15 @@ The following options are the main features of huntsman for gathering actionable
 
 ### --uri-confirm
 
-Confirms positive HTTP responses for hunter.io source URIs and the presence of emails and user information. Does NOT provide any context (see `--uri-context`):
+Confirm positive HTTP responses for hunter.io source URIs and the presence of emails and user information. Does NOT provide any context (see `--uri-context`):
 
 ![](https://github.com/mlcsec/huntsman/blob/main/.github/confirm-email-uris.png)
 
 ### --uri-context
 
-Confirm positive HTTP responses, presence of email address, first name, last name, and the surrounding context for the user information identified in hunter.io source URIs. This aids in confirming the validity of the account information as I have encounted false positives in the past. 
+Confirm positive HTTP responses, presence of email address, first name, last name, and the surrounding context for the user information identified in hunter.io source URIs. This aids in confirming the validity of the account information as I have encountered false positives in the past. 
 
-The primary purpose was identifying the context the email or user information was used in to create realistic pretexts for phishing or SE. The example below demonstrates this as the `lisa@stripe.com` email should be used for emailing CVs. This provides us with a 'pre-configured' pretext for the user as opposed to blindly creating one based on a list of emails for the target company. 
+The primary purpose of this functionality is identifying the context the email or user information was used in to create realistic pretexts for phishing or SE. The example below demonstrates this as the `lisa@stripe.com` email should be used for emailing CVs. This provides us with a 'pre-configured' pretext for the user as opposed to blindly creating one based on a list of emails for the target company. 
 
 ![](https://github.com/mlcsec/huntsman/blob/main/.github/context-cv-email-pretext.png)
 
@@ -89,7 +91,7 @@ Another example identified a personal GitHub account associated with the email t
 
 ![](https://github.com/mlcsec/huntsman/blob/main/.github/context-github-found.png)
 
-Personal user accounts for betalist, hackernews, and nomadlist confirmed for target email:
+Personal user accounts and usernames for external services such as betalist, hackernews, and nomadlist were discoverd in this example:
 
 ![](https://github.com/mlcsec/huntsman/blob/main/.github/uri-context-edwin.png)
 
@@ -101,7 +103,7 @@ Identify social media accounts associated with supplied user emails (LinkedIn/Tw
 
 ### --usergen
 
-Generate common usernames from gathered first and last name combinations using the formats specified below. Automates the generation of username lists for targetting corporate logins, brute forcing company web apps, password reset user enumeration, etc. 
+Generate common usernames from gathered first and last name combinations using the formats specified below. Automates the generation of username lists for targeting corporate logins, brute forcing company web apps, password reset user enumeration, etc. 
 
 ```python
 {first}.{last}
