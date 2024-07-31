@@ -25,8 +25,9 @@ Email enumerator, username generator, and context validator providing detailed c
 ## Installation
 
 ```
-# todo
+pip install huntsman
 ```
+Or
 ```
 git clone https://github.com/mlcsec/huntsman.git
 cd huntsman
