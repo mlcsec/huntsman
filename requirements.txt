@@ -1,3 +1,4 @@
 requests
 colorama
 urllib3==2.2.2
+tqdm

@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "huntsman"
+version = "0.5"
+authors = [
+    {name = "mlcsec", email = "mlcsec@proton.me"},
+]
+description = "Email enumerator, validator, and username generator for the hunter.io, snov.io, and skrapp.io APIs"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Topic :: Security",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/mlcsec/huntsman"
+
+[project.scripts]
+huntsman = "huntsman.__main__:main"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}

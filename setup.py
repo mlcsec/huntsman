@@ -11,7 +11,7 @@ if os.path.exists('requirements.txt'):
 
 setup(
     name="huntsman",
-    version="0.1",
+    version="0.5",
     packages=find_packages(),
     author="mlcsec",
     author_email="mlcsec@proton.me",
