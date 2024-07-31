@@ -29,15 +29,15 @@ def print_email_verifier_results(email, data: Dict, file=None):
     print_to_both(f"{Fore.MAGENTA}Status:{Style.RESET_ALL} {result['status']}", file)
     print_to_both(f"{Fore.YELLOW}Result:{Style.RESET_ALL} {result['result']}", file)
     print_to_both(f"{Fore.CYAN}Score:{Style.RESET_ALL} {str(result['score'])}", file)
-    print_to_both(f"{Fore.BLUE}Regular Expression:{Style.RESET_ALL} {str(result['regexp'])}", file)
-    print_to_both(f"{Fore.BLUE}Gibberish:{Style.RESET_ALL} {str(result['gibberish'])}", file)
-    print_to_both(f"{Fore.BLUE}Disposable:{Style.RESET_ALL} {str(result['disposable'])}", file)
-    print_to_both(f"{Fore.BLUE}Webmail:{Style.RESET_ALL} {str(result['webmail'])}", file)
-    print_to_both(f"{Fore.BLUE}MX Records:{Style.RESET_ALL} {str(result['mx_records'])}", file)
-    print_to_both(f"{Fore.BLUE}SMTP Server:{Style.RESET_ALL} {str(result['smtp_server'])}", file)
-    print_to_both(f"{Fore.BLUE}SMTP Check:{Style.RESET_ALL} {str(result['smtp_check'])}", file)
-    print_to_both(f"{Fore.BLUE}Accept All:{Style.RESET_ALL} {str(result['accept_all'])}", file)
-    print_to_both(f"{Fore.BLUE}Block:{Style.RESET_ALL} {str(result['block'])}", file)
+    print_to_both(f"{Fore.CYAN}Regular Expression:{Style.RESET_ALL} {str(result['regexp'])}", file)
+    print_to_both(f"{Fore.CYAN}Gibberish:{Style.RESET_ALL} {str(result['gibberish'])}", file)
+    print_to_both(f"{Fore.CYAN}Disposable:{Style.RESET_ALL} {str(result['disposable'])}", file)
+    print_to_both(f"{Fore.CYAN}Webmail:{Style.RESET_ALL} {str(result['webmail'])}", file)
+    print_to_both(f"{Fore.CYAN}MX Records:{Style.RESET_ALL} {str(result['mx_records'])}", file)
+    print_to_both(f"{Fore.CYAN}SMTP Server:{Style.RESET_ALL} {str(result['smtp_server'])}", file)
+    print_to_both(f"{Fore.CYAN}SMTP Check:{Style.RESET_ALL} {str(result['smtp_check'])}", file)
+    print_to_both(f"{Fore.CYAN}Accept All:{Style.RESET_ALL} {str(result['accept_all'])}", file)
+    print_to_both(f"{Fore.CYAN}Block:{Style.RESET_ALL} {str(result['block'])}", file)
     
     if result.get('sources'):
         print_to_both(f"{Fore.CYAN}Sources: {Style.RESET_ALL}", file)
@@ -78,7 +78,7 @@ def email_verifier(args, api_key):
                     exists = None
                     try:
                         url = "https://login.microsoftonline.com/common/GetCredentialType"
-                        data = {
+                        userdata = {
                             "username": username,
                             "isOtherIdpSupported": True,
                             "checkPhones": False,
@@ -95,7 +95,7 @@ def email_verifier(args, api_key):
                             "flowToken": "",
                             "isAccessPassSupported": True
                         }
-                        response = requests.post(url, json=data)
+                        response = requests.post(url, json=userdata)
                         if response.status_code == 200:
                             result = response.json()
                             exists = result.get('IfExistsResult', 0) == 0

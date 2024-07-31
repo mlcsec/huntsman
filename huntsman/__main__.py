@@ -72,7 +72,7 @@ def main():
         email_finder_parser.add_argument("--output", help="Output file name")
 
         email_verifier_parser = hunterio_subparsers.add_parser('email-verifier', help='Verify email addresses')
-        email_verifier_parser.add_argument("--email", help="The email address you want to verify")
+        email_verifier_parser.add_argument("--email", help="The email addresses you want to verify (raw or emails.txt)")
         email_verifier_parser.add_argument("--entraid", action="store_true", help="Invoke user enumeration (AADInternals) for supplied emails")
         email_verifier_parser.add_argument("--uri-confirm", action="store_true", help="Confirm presence of email or user information within returned URIs")
         email_verifier_parser.add_argument("--uri-context", action="store_true", help="Discover surrounding context of email or user information within returned URIs")
@@ -102,14 +102,14 @@ def main():
         domain_searchv2_parser.add_argument("--output", help="Output file name")
 
         get_profile_parser = snovio_subparsers.add_parser('get-profile', help='Get profile information for email addresses')
-        get_profile_parser.add_argument("--email", help="The email address you want to verify")
+        get_profile_parser.add_argument("--email", help="The email addresses you want to verify (raw or emails.txt)")
         get_profile_parser.add_argument("--entraid", action="store_true", help="Invoke user enumeration (AADInternals) for supplied emails")
         get_profile_parser.add_argument("--usergen", action="store_true", help="Generate common username formats from gathered first and last names")
         get_profile_parser.add_argument("--socials", action="store_true", help="ONLY output associated social media links for emails")
         get_profile_parser.add_argument("--output", help="Output file name")
 
         snovemail_verifier_parser = snovio_subparsers.add_parser('email-verifier', help='Verify email addresses')
-        snovemail_verifier_parser.add_argument("--email", help="The email address you want to verify")
+        snovemail_verifier_parser.add_argument("--email", help="The email addresses you want to verify (raw or emails.txt)")
         snovemail_verifier_parser.add_argument("--entraid", action="store_true", help="Invoke user enumeration (AADInternals) for supplied emails")
         snovemail_verifier_parser.add_argument("--output", help="Output file name")
 
@@ -240,7 +240,7 @@ def main():
 
             if args.command == 'company-search':
                 from huntsman.commands_skrappio.company_search import company_search
-                if not args.company or args.company_url:
+                if not args.company and not args.company_url:
                     company_profiles_search_parser.error(f"{Fore.RED}--company-url or --company is required{Style.RESET_ALL}")
                 company_search(args, api_key)
 

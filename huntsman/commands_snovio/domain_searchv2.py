@@ -42,11 +42,11 @@ def print_emails(data: Dict, file=None):
     print_section_header("Email Results", file)
     
     for email in data['emails']:
-        print_to_both(f"{Fore.MAGENTA}Email:{Style.RESET_ALL} {email['email']}", file)
+        print_to_both(f"{Fore.CYAN}Email:{Style.RESET_ALL} {email['email']}", file)
         #print_to_both(f"{Fore.MAGENTA}Name:{Style.RESET_ALL} {email.get('firstName', 'N/A')} {email.get('lastName', 'N/A')}", file)
         #print_to_both(f"{Fore.MAGENTA}Position:{Style.RESET_ALL} {email.get('position', 'N/A')}", file)
-        print_to_both(f"{Fore.MAGENTA}Type:{Style.RESET_ALL} {email['type']}", file)
-        print_to_both(f"{Fore.MAGENTA}Status:{Style.RESET_ALL} {email['status']}", file)
+        print_to_both(f"{Fore.CYAN}Type:{Style.RESET_ALL} {email['type']}", file)
+        print_to_both(f"{Fore.CYAN}Status:{Style.RESET_ALL} {email['status']}", file)
         #print_to_both(f"{Fore.MAGENTA}Source:{Style.RESET_ALL} {email.get('sourcePage', 'N/A')}", file)
         print_to_both(f"{Fore.YELLOW}{'-' * 40}{Style.RESET_ALL}", file)
 

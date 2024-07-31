@@ -61,14 +61,26 @@ def print_results(data: Dict, file=None):
     for result in results:
         print_to_both(f"{Fore.MAGENTA}Name:{Style.RESET_ALL} {result.get('full_name', 'N/A')}", file)
         print_to_both(f"{Fore.MAGENTA}Location:{Style.RESET_ALL} {result.get('location', 'N/A')}", file)
-        
+       
         position = result.get('position', {})
-        print_to_both(f"{Fore.MAGENTA}Position:{Style.RESET_ALL} {position.get('title', 'N/A')}", file)
-        
+        if position:
+            print_to_both(f"{Fore.MAGENTA}Position:{Style.RESET_ALL}", file)
+            print_to_both(f"  {Fore.CYAN}Title:{Style.RESET_ALL} {position.get('title', 'N/A')}", file)
+            print_to_both(f"  {Fore.CYAN}Location:{Style.RESET_ALL} {position.get('location', 'N/A')}", file)
+            start_date = position.get('start_date', {})
+            if start_date:
+                start_date_str = f"{start_date.get('month', 'N/A')}/{start_date.get('year', 'N/A')}"
+                print_to_both(f"  {Fore.CYAN}Start Date:{Style.RESET_ALL} {start_date_str}", file)
+        else:
+            print_to_both(f"{Fore.MAGENTA}Position:{Style.RESET_ALL} N/A", file)
+
         print_to_both(f"{Fore.MAGENTA}Email:{Style.RESET_ALL} {result.get('email', 'N/A')}", file)
         
         email_quality = result.get('email_quality', {})
-        print_to_both(f"{Fore.MAGENTA}Email Status:{Style.RESET_ALL} {email_quality.get('status', 'N/A')}", file)
+        if email_quality:
+            print_to_both(f"{Fore.MAGENTA}Email Quality:{Style.RESET_ALL}", file)
+            print_to_both(f"  {Fore.CYAN}Status:{Style.RESET_ALL} {email_quality.get('status', 'N/A')}", file)
+            print_to_both(f"  {Fore.CYAN}Message:{Style.RESET_ALL} {email_quality.get('status_message', 'N/A')}", file)
         
         print_to_both(f"{Fore.YELLOW}{'-' * 40}{Style.RESET_ALL}", file)
 
