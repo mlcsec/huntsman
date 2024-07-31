@@ -15,7 +15,7 @@ setup(
     packages=find_packages(),
     author="mlcsec",
     author_email="mlcsec@proton.me",
-    description="Email enumerator, validator, and username generator for the Hunter.io API",
+    description="Email enumerator, validator, and username generator for the hunter.io, snov.io, and skrapp.io APIs",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/mlcsec/huntsman",
