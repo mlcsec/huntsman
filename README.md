@@ -36,6 +36,10 @@ cd huntsman
 pip install .
 huntsman -h
 ```
+You can upgrade with:
+```
+pip install --upgrade huntsman
+```
 
 ## Setup
 
