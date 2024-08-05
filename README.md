@@ -95,7 +95,7 @@ Another example identified a personal GitHub account associated with the email t
 
 ![](https://github.com/mlcsec/huntsman/blob/main/.github/context-github-found.png)
 
-Personal user accounts and usernames for external services such as betalist, hackernews, and nomadlist were discoverd in this example:
+Personal user accounts and usernames for external services such as betalist, hackernews, and nomadlist were discovered in this example:
 
 ![](https://github.com/mlcsec/huntsman/blob/main/.github/uri-context-edwin.png)
 
